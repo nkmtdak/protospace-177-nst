@@ -76,4 +76,8 @@ end
 group :production do
   gem 'pg'
 end
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 gem 'devise'
