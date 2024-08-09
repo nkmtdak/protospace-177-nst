@@ -30,7 +30,7 @@ development:
 test:
   <<: *default
   database: protospace_177_nst_test
-adapter: mysql2
+  adapter: mysql2
   username: root
   password:
   host: localhost
