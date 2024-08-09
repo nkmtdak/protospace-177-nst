@@ -9,3 +9,18 @@ one: {}
 #
 two: {}
 # column: value
+one:
+  email: MyString
+  encrypted_password: MyString
+  name: MyString
+  profile: MyText
+  occupation: MyText
+  position: MyText
+
+two:
+  email: MyString
+  encrypted_password: MyString
+  name: MyString
+  profile: MyText
+  occupation: MyText
+  position: MyText

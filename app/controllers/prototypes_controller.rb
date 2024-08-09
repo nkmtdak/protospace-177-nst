@@ -1,8 +1,6 @@
 class PrototypesController < ApplicationController
   def index
-<<<<<<< Updated upstream
     @prototypes = Prototype.all
-=======
     # プロトタイプ一覧の表示
   end
 
@@ -15,18 +13,23 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to root_path, notice: 'プロトタイプが投稿されました'
     else
-      render :new
-    end
->>>>>>> Stashed changes
+      @prototypes = @prototypes.includes(:user)
+      render :index, status: :unprocessable_entity
   end
 
   private
 
   def prototype_params
-<<<<<<< Updated upstream
     params.require(:prototype).permit(:name, :catch_copy, :concept, :image).merge(user_id: current_user.id)
-=======
     params.require(:prototype).permit(:title, :description, :image)
->>>>>>> Stashed changes
+    @prototypes = Prototype.all
   end
+
+  def create
+    @prototype = prototypes.new(prototype_params)
+    if @prototype.save
+      redirect_to root_path
+    end
+  end
+
 end
