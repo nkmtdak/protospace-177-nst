@@ -4,7 +4,12 @@ class PrototypesController < ApplicationController
   end
 
   def new
-    @new = Prototype.new
+    @prototype = Prototype.new
+  end
+
+  def show
+    @prototype = Prototype.new
+    @prototypes = @prototype.includes(:user)
   end
 
   def create
