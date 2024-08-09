@@ -12,7 +12,7 @@
 default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
- 
+
 development:
   <<: *default
   adapter: mysql2
@@ -20,6 +20,7 @@ development:
   password:
   host: localhost
   database: protospace_177_nst_development
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
@@ -55,3 +56,4 @@ production:
   <<: *default
   adapter: postgresql
   url: <%= ENV['DATABASE_URL'] %>
+

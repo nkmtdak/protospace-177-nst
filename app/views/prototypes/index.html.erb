@@ -7,7 +7,11 @@
       <%# </div> %>
     <%# // ログインしているときは上記を表示する %>
     <div class="card__wrapper">
-      <%= render prototypes/prototypes%>
+      <% @prototypes.each do |prototype|%>
+      <%= render partial: 'prototype', collection: @prototypes %>
+      <% end %>
+      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+
     </div>
   </div>
 </main>
