@@ -7,7 +7,9 @@
       <%# </div> %>
     <%# // ログインしているときは上記を表示する %>
     <div class="card__wrapper">
-      <%= render prototypes/prototypes%>
+      <% @prototypes.each do |prototype| %>
+    <%= render pertial: 'prototype', collection: @prototypes %>
+    <% end %>
     </div>
   </div>
 </main>
