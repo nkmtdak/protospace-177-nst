@@ -56,6 +56,8 @@ adapter: mysql2
 #
 production:
   <<: *default
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
   database: protospace_177_nst_production
   username: protospace_177_nst
   password: <%= ENV["PROTOSPACE_177_NST_DATABASE_PASSWORD"] %>
