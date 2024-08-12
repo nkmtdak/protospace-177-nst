@@ -2,12 +2,12 @@
   <div class="inner">
    <% if user_signed_in? %>
       <div class="greeting"> 
-        こんにちは
+        こんばんは
       <%= link_to "#{current_user.user_name}さん", root_path, class: :greeting__link %>
       </div>
       <% else %>
       <div class="greeting"> 
-        こんにちは
+        こんばんは
        <%= link_to "ユーザー名さん", root_path, class: :greeting__link %>
       </div>
       <% end %>
