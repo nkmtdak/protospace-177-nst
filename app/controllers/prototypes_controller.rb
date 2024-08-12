@@ -9,8 +9,8 @@ class PrototypesController < ApplicationController
   end
 
   def create
-   @prototype = Prototype.create(prototype_params)
-   if @prototype.save
+    Prototype.create(prototype_params)
+   if prototype.save
     redirect_to "/"
    else
     render :new, status: :unprocessable_entity
@@ -18,6 +18,7 @@ class PrototypesController < ApplicationController
   end
 
    def show
+    @prototypes = Prototype.find(params[:id])
    end
   
   private
