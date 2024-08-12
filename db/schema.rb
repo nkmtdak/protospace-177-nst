@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_10_093243) do
   end
 
   create_table "prototypes", charset: "utf8", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "name", null: false
     t.text "catch_copy", null: false
     t.text "concept", null: false
     t.bigint "user_id", null: false

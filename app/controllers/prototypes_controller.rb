@@ -5,11 +5,11 @@ class PrototypesController < ApplicationController
   end
 
   def new
-    @prototype = Prototype.new
+    @prototypes = Prototype.new
   end
 
   def create
-   Prototype.create(prototype_params)
+   @prototype = Prototype.create(prototype_params)
    if @prototype.save
     redirect_to "/"
    else
