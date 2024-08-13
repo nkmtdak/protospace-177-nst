@@ -2,29 +2,35 @@
   <div class="inner">
     <div class="prototype__wrapper">
       <p class="prototype__hedding">
-        <%= prototype.name%>
+        <%= @prototype.name%>
       </p>
-      <%= link_to "by プロトタイプの投稿者", root_path, class: :prototype__user %>
-      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <%= link_to "by #{@prototype.user.user_name}", root_path, class: :prototype__user %>
+
+       <% if user_signed_in? && current_user.id == @prototype.user_id %>
         <div class="prototype__manage">
-          <%= link_to "編集する", edit_tweet_path(@prototypes.id)%>
-          <%= link_to "削除する", prototype_path(@prototypes.id), data: { turbo_method: :delete }%>
+          <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %>
+          <%= link_to "削除する", prototype_path(@prototype), data: { turbo_method: :delete }, class: :prototype__btn %>
+
         </div>
-      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <% end %>
+
       <div class="prototype__image">
-        <%= image_tag "プロトタイプの画像" %>
+        <%= image_tag url_for(@prototype.image) %>
       </div>
+
       <div class="prototype__body">
         <div class="prototype__detail">
           <p class="detail__title">キャッチコピー</p>
           <p class="detail__message">
-            <%= "@prororypes":catch_copy %>
+
+
+            <%= @prototype.catch_copy %>
           </p>
         </div>
         <div class="prototype__detail">
           <p class="prototypes:concept">コンセプト</p>
           <p class="detail__message">
-            <%= "プロトタイプのコンセプト" %>
+            <%= @prototype.concept %>
           </p>
         </div>
       </div>
