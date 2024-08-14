@@ -37,25 +37,24 @@ class PrototypesController < ApplicationController
    end
 
    def update
-    @prototype = Prototype.find(prototype_params[:id])
+    @prototype = Prototype.find(params[:id])
     if @prototype.update(prototype_params)
       redirect_to prototype_path(@prototype)
-    else
+      else
       render :edit, status: :unprocessable_entity
     end
-
-   end
+    end
   
   private
 
    def prototype_params
-   params.require(:prototype).permit(:name, :catch_copy, :concept, :image).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:name, :catch_copy, :concept, :image).merge(user_id: current_user.id)
    end
 
    def move_to_index
       @prototype = Prototype.find_by(id: params[:id])
-    unless user_signed_in? &&  current_user.id == @prototype.user_id 
+      unless user_signed_in? &&  current_user.id == @prototype.user_id 
       redirect_to action: :index
       end
-    end
+   end
 end
