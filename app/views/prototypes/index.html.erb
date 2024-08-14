@@ -3,12 +3,12 @@
    <% if user_signed_in? %>
       <div class="greeting"> 
         こんばんは
-      <%= link_to "#{current_user.user_name}さん", root_path, class: :greeting__link %>
+      <%= link_to "#{current_user.user_name}さん", user_path(current_user), class: :greeting__link %>
       </div>
       <% else %>
       <div class="greeting"> 
         こんばんは
-       <%= link_to "ユーザー名さん", root_path, class: :greeting__link %>
+       <%= link_to "ユーザー名さん", new_user_session_path, class: :greeting__link %>
       </div>
       <% end %>
     <div class="card__wrapper">

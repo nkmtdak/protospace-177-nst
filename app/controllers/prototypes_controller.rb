@@ -1,5 +1,7 @@
 class PrototypesController < ApplicationController
-  
+  before_action :authenticate_user!, only: [:new,:edit,:destroy]
+  before_action :move_to_index, only: [:edit]
+
   def index
     @prototypes = Prototype.includes(:user)
   end
@@ -50,5 +52,10 @@ class PrototypesController < ApplicationController
    params.require(:prototype).permit(:name, :catch_copy, :concept, :image).merge(user_id: current_user.id)
    end
 
-
+   def move_to_index
+      @prototype = Prototype.find_by(id: params[:id])
+    unless user_signed_in? &&  current_user.id == @prototype.user_id 
+      redirect_to action: :index
+      end
+    end
 end
